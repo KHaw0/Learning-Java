@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class language {
+    Scanner in = new Scanner(System.in);
+
     public static void main(String[] args){
         language obj = new language();
         String language1 = obj.Input("input Language1 >> ");
@@ -10,7 +12,6 @@ public class language {
     }
 
     public String Input(String UI){
-        Scanner in = new Scanner(System.in);
         System.out.print(UI);
         return in.nextLine();
     }

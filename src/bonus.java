@@ -13,7 +13,7 @@ public class bonus {
         return formom;
     }
     public static double getForson(double bonus, double formom){
-        double rembonus = bonus = formom;
+        double rembonus = bonus - formom;
         double forson = rembonus / 3;
         return forson;
     }
