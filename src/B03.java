@@ -21,11 +21,12 @@ public class B03 {
     }
 
     public String getStr(int ass, int mid, int fn){
-        if(getAverage(ass, mid, fn) >= 80){
+        double avg = getAverage(ass, mid, fn);
+        if(avg >= 80){
             return "Pass";
-        }else if(getAverage(ass, mid, fn) >= 65){
+        }else if(avg >= 65){
             return "Good";
-        }else if(getAverage(ass, mid, fn) >= 50){
+        }else if(avg >= 50){
             return "Pass";
         }else{
             return "Fail";
