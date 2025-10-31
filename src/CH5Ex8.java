@@ -5,8 +5,8 @@ public class CH5Ex8 {
 
     public static void main(String[] args){
         CH5Ex8 obj = new CH5Ex8();
-        int n = obj.inputInt("N : ");
-        double[][] data = new double[n][n];
+        int n = obj.Input("N : ");
+        int[][] data = new int[n][n];
         double[][] sum = new double[n][n];
         double[][] avg = new double[n][n];
         obj.getData(data);
@@ -15,26 +15,21 @@ public class CH5Ex8 {
         obj.Dispaly(avg);
     }
 
-    public int inputInt(String UI){
+    public int Input(String UI){
         System.out.print(UI);
         return in.nextInt();
     }
 
-    public double inputDouble(String UI){
-        System.out.print(UI);
-        return in.nextDouble();
-    }
-
-    public void getData(double[][] data){
+    public void getData(int[][] data){
         System.out.println("DATA : ");
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
-                data[i][j] = inputDouble("");
+                data[i][j] = Input("");
             }
         }
     }
 
-    public void getSum(double[][] sum, double[][] data){
+    public void getSum(double[][] sum, int[][] data){
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
                 sum[i][i] += data[i][j];
@@ -42,7 +37,7 @@ public class CH5Ex8 {
         }
     }
 
-    public void getAvg(double[][] data, double[][] avg, int n, double[][] sum){
+    public void getAvg(int[][] data, double[][] avg, int n, double[][] sum){
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
                 avg[i][i] = sum[i][i] / n;
