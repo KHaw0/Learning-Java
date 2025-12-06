@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class fn12 {
     public static void main(String[] args){
         fn12 obj = new fn12();
-        int n = obj.Input("N :\t");
+        int n = obj.Input("N : ");
         int[] data = new int[n];
         obj.getData(data);
         obj.Display(data);
@@ -34,7 +34,7 @@ public class fn12 {
     public void Display(int[] data){
         disM(data);
         disHaft(data);
-        disW(data);
+        //disW(data);
     }
 
     public void disM(int[] data){
