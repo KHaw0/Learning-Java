@@ -52,14 +52,39 @@ class Car_I
 
         System.out.printf("LcnNum\tWEIGHT\tTYPE\tFEE\tCOST\tPASSpay\n");
         for(int i = 0; i < n; i++){
+            System.out.printf("%s\t", lcnNum[i]);
             if(weight[i] * 10 % 1 == 0){
-                System.out.printf("%s\t%.1f\t%s\t%d\t%.1f\t%.1f\n", lcnNum[i], weight[i], type[i], fee[i], cost[i], passPay[i]);
+                System.out.printf("%.1f\t", weight[i]);
             }else{
-                System.out.printf("%s\t%.2f\t%s\t%d\t%.1f\t%.1f\n", lcnNum[i], weight[i], type[i], fee[i], cost[i], passPay[i]);
+                System.out.printf("%.2f\t", weight[i]);
+            }
+            System.out.printf("%s\t%d\t", type[i], fee[i]);
+            if(cost[i] * 10 % 1 == 0){
+                System.out.printf("%.1f\t", cost[i]);
+            }else{
+                System.out.printf("%.2f\t", cost[i]);
+            }
+            if(passPay[i] * 10 % 1 == 0){
+                System.out.printf("%.1f\n", passPay[i]);
+            }else{
+                System.out.printf("%.2f\n", passPay[i]);
             }
         }
         System.out.println("***********************************************");
-        System.out.printf("MAX\t\t\t\t%.1f\t%.1f\n", maxCost, maxPassPay);
-        System.out.printf("SUM\t\t\t\t\t%.1f\n", sumPassPay);
+        if(maxCost * 10 % 1 == 0){
+            System.out.printf("MAX\t\t\t\t%.1f\t", maxCost);
+        }else{
+            System.out.printf("MAX\t\t\t\t%.2f\t", maxCost);
+        }
+        if(maxPassPay * 10 % 1 == 0){
+            System.out.printf("%.1f\n", maxPassPay);
+        }else{
+            System.out.printf("%.2f\n", maxPassPay);
+        }
+        if(sumPassPay * 10 % 1 == 0){
+            System.out.printf("SUM\t\t\t\t\t%.1f\n", sumPassPay);
+        }else{
+            System.out.printf("SUM\t\t\t\t\t%.2f\n", sumPassPay);
+        }
     }
 }
