@@ -25,7 +25,7 @@ class xo {
                         obj.printTable(table);
                         obj.setNumInTable(table, tableX, tableO);
                         obj.getWin(tableX, tableO);
-                        if(obj.getCount(tableX) == n || obj.getCount(tableO) == n) break;
+                        if(obj.getCount(tableX) == table.length || obj.getCount(tableO) == table.length) break;
                     }else{
                         i--;
                         System.out.println("INDEX Already");
