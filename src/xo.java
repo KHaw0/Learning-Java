@@ -93,35 +93,22 @@ class xo {
 
     int getCount(int[][] data) {
         int n = data.length;
-
-        for (int i = 0; i < n; i++) {
-            int row = 0;
-            for (int j = 0; j < n; j++) {
-                row += data[i][j];
-            }
-            if (row == n) return n;
-        }
-
-        for (int j = 0; j < n; j++) {
-            int col = 0;
-            for (int i = 0; i < n; i++) {
-                col += data[i][j];
-            }
-            if (col == n) return n;
-        }
-
         int diag1 = 0;
-        for (int i = 0; i < n; i++) {
-            diag1 += data[i][i];
-        }
-        if (diag1 == n) return n;
-
         int diag2 = 0;
         for (int i = 0; i < n; i++) {
-            diag2 += data[i][n - i - 1];
+            int row = 0;
+            int col = 0;
+            diag1 += data[i][i];
+            for (int j = 0; j < n; j++) {
+                row += data[i][j];
+                col += data[i][j];
+                if(i + j == n - 1) diag2 += data[i][j];
+            }
+            if (row == n) return n;
+            if (col == n) return n;
         }
+        if (diag1 == n) return n;
         if (diag2 == n) return n;
-
         return 0;
     }
 
