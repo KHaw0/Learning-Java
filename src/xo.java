@@ -5,39 +5,9 @@ class xo {
         xo obj = new xo();
         int n = Integer.parseInt(obj.input("TableSize(NxN): "));
         char[][] table = new char[n][n];
-        boolean[][] used = new boolean[n][n];
-        int[][] tableX = new int[n][n];
-        int[][] tableO = new int[n][n];
         obj.setTable(table);
         obj.printTable(table);
-        for(int i = 0; i < table.length * table.length; i++){
-            char ch = obj.input("input X/O: ").charAt(0);
-            if(ch == 'E'){
-                break;
-            }
-            int indexI = Integer.parseInt(obj.input("Index i: "));
-            int indexJ = Integer.parseInt(obj.input("Index j: "));
-            if(ch == 'X' || ch == 'O' || ch == 'x' || ch == 'o'){
-                if(indexI >= 0 && indexI < table.length && indexJ >= 0 && indexJ < table.length){
-                    if(!used[indexI][indexJ]){
-                        used[indexI][indexJ] = true;
-                        obj.setXO(table, ch, indexI, indexJ);
-                        obj.printTable(table);
-                        obj.setNumInTable(table, tableX, tableO);
-                        obj.getWin(tableX, tableO);
-                        if(obj.getCount(tableX) == table.length || obj.getCount(tableO) == table.length) break;
-                    }else{
-                        i--;
-                        System.out.println("INDEX Already");
-                    }
-                }else {
-                    System.out.println("INDEX ERROR");
-                }
-            }else {
-                System.out.println("pls input X/O");
-            }
-
-        }
+		obj.game(table);
     }
 
     String input(String UI){
@@ -101,7 +71,7 @@ class xo {
             diag1 += data[i][i];
             for (int j = 0; j < n; j++) {
                 row += data[i][j];
-                col += data[i][j];
+                col += data[j][i];
                 if(i + j == n - 1) diag2 += data[i][j];
             }
             if (row == n) return n;
@@ -119,4 +89,40 @@ class xo {
         int o = getCount(tableO);
         if(o == tableO.length) System.out.println("O WIN!!");
     }
+
+	void game(char[][] table){
+		int n = table.length;
+        boolean[][] used = new boolean[n][n];
+        int[][] tableX = new int[n][n];
+        int[][] tableO = new int[n][n];
+		int i = 0;	
+        for(; i < table.length * table.length; i++){
+            char ch = input("input X/O: ").charAt(0);
+            if(ch == 'E' || ch == 'e'){
+                break;
+            }
+            int indexI = Integer.parseInt(input("Index i: "));
+            int indexJ = Integer.parseInt(input("Index j: "));
+            if(ch == 'X' || ch == 'O' || ch == 'x' || ch == 'o'){
+                if(indexI >= 0 && indexI < table.length && indexJ >= 0 && indexJ < table.length){
+                    if(!used[indexI][indexJ]){
+                        used[indexI][indexJ] = true;
+                        setXO(table, ch, indexI, indexJ);
+                        printTable(table);
+                        setNumInTable(table, tableX, tableO);
+                        getWin(tableX, tableO);
+                        if(getCount(tableX) == table.length || getCount(tableO) == table.length) break;
+                    }else{
+                        i--;
+                        System.out.println("INDEX Already Used!");
+                    }
+                }else {
+                    System.out.println("INDEX ERROR");
+                }
+            }else {
+                System.out.println("pls input X/O");
+            }
+        }
+		if(i == table.length * table.length) System.out.println("DRAW!");
+	}
 }
