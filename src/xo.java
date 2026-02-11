@@ -117,9 +117,11 @@ class xo {
                         System.out.println("INDEX Already Used!");
                     }
                 }else {
+					i--;
                     System.out.println("INDEX ERROR");
                 }
             }else {
+				i--;
                 System.out.println("pls input X/O");
             }
         }
