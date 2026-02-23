@@ -9,12 +9,13 @@ public class area {
         double height = obj.Input("HEIGHT : ");
         System.out.println("AREA = " + obj.getArea(width, height));
     }
-    public double Input(String UI){
+
+    public double Input(String UI) {
         System.out.print(UI);
         return in.nextDouble();
     }
 
-    public double getArea(double w, double h){
+    public double getArea(double w, double h) {
         return w * h;
     }
 }
